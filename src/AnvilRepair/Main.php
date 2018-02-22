@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener{
 	public function repairItem(Player $player){
 		$ids = [298,299,300,301,302,303,304,305,306,307,308,309,310, 311,312,313,314,315,316,317,256,257,258,267,292,268,269,270,271,290,272,273,274,275,291,276,277,278,279,293,283,284,285,286,294,261];
 		$money = $this->getEconomy()->myMoney($player);
-		$reCost = $this->cfg['reparar-money-cost'];
+		$reCost = $this->cfg['repair-money-cost'];
 		$hand = $player->getInventory()->getItemInHand();
 		$cost = $reCost - $money;
 		
