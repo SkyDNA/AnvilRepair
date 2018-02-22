@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 	
-	public function getEconomy(): void{
+	public function getEconomy(){
 		return $this->economy;
 	}
 	
