@@ -13,7 +13,7 @@ use pocketmine\item\enchantment\Enchantment;
 class Main extends PluginBase implements Listener{
 	private $tap = [];
 	
-	public function onEnable(){
+	public function onEnable(): void{
 		@mkdir($this->getDataFolder());
 		$this->saveDefaultConfig();
 		$this->cfg = $this->getConfig()->getAll();
@@ -21,7 +21,7 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 	
-	public function getEconomy(){
+	public function getEconomy(): void{
 		return $this->economy;
 	}
 	
@@ -38,7 +38,7 @@ class Main extends PluginBase implements Listener{
 			 	}else{
 			 		$this->tap[$user] = $time;
 			 		$player->sendMessage($this->cfg['msg-tap'].$this->cfg['repair-money-cost']);
-			 		return;
+			 		return true;
 			 	}
 			 }
 	}
@@ -52,11 +52,11 @@ class Main extends PluginBase implements Listener{
 		
 		if($money < $reCost){
 			$player->sendMessage($this->cfg['msg-the-money'].$cost);
-			return;
+			return true;
 		}
 		if(!in_array($hand->getId(), $ids)){
 			$player->sendMessage($this->cfg['msg-item-no-permission']);
-			return;
+			return true;
 		}
 		$item = Item::get($hand->getId(), 0, $hand->getCount());
 		if($hand->hasCustomName()){
