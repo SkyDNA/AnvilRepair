@@ -10,7 +10,6 @@ use pocketmine\block\Block;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\item\Item;
 use pocketmine\item\enchantment\Enchantment;
-
 class Main extends PluginBase implements Listener{
 	private $tap = [];
 	
@@ -42,8 +41,6 @@ class Main extends PluginBase implements Listener{
 			 		return;
 			 	}
 			 }
-			break;
-		}
 	}
 	
 	public function repairItem(Player $player){
@@ -77,5 +74,5 @@ class Main extends PluginBase implements Listener{
 		$this->getEconomy()->reduceMoney($player, $reCost);
 		$player->getInventory()->setItemInHand($item);
 		$player->sendMessage($this->cfg['msg-sucess']);
-	}
-}
+	        }
+           }
